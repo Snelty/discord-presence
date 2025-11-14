@@ -1,0 +1,32 @@
+{
+  "name": "discord-presence-helper",
+  "version": "1.0.0",
+  "description": "Interactive CLI to configure and start a Discord Rich Presence session.",
+  "main": "snelty_presence.js",
+  "bin": {
+    "discord-presence": "snelty_presence.js"
+  },
+  "scripts": {
+    "start": "node snelty_presence.js",
+    "build:exe": "pkg --targets node18-win-x64 --output dist/snelty-presence.exe snelty_presence.js"
+  },
+  "keywords": [
+    "discord",
+    "rich-presence",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.0"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/discord-rpc/build/**/*"
+    ]
+  }
+}
+
