@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const rpc = require("discord-rpc");
 const readline = require("readline");
 
@@ -28,6 +26,23 @@ async function promptBool(label, defaultValue = false) {
     const answer = (await question(`${label} (${suffix}): `)).trim().toLowerCase();
     if (!answer) return defaultValue;
     return ["y", "yes", "s", "si", "true", "1"].includes(answer);
+}
+
+function printBanner() {
+    console.log(String.raw`
+  #########                      ####   #####              
+ ###.....###                    ..###  ..###               
+.###    ...  ########    ######  .###  #######   ##### ####
+..######### ..###..###  ###..### .### ...###.   ..### .### 
+ .........### .### .### .#######  .###   .###     .### .### 
+ ###    .### .### .### .###..    .###   .### ### .### .### 
+..#########  #### #####..######  #####  ..#####  ..####### 
+ .........  .... .....  ......  .....    .....    .....### 
+                                                  ### .### 
+                                                 ..######  
+                                                  ......   
+                    goat
+`);
 }
 
 async function buildActivityPayload() {
@@ -74,7 +89,8 @@ async function buildActivityPayload() {
 }
 
 async function main() {
-    console.log("Discord Rich Presence CLI\n---------------------------");
+    printBanner();
+    console.log("Discord Presence CLI -> By Snelty 🙈\n---------------------------");
     const clientId = await prompt("Discord Application Client ID", { required: true });
 
     const client = new rpc.Client({ transport: "ipc" });
