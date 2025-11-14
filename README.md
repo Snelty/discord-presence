@@ -5,8 +5,8 @@ Herramienta simple para configurar un estado de discord desde la consola o desde
 ## Lo que necesitas antes de empezar
 - **Node.js 18+** para ejecutar el script y construir el `.exe`.
 - **Aplicacion en el Developer Portal**: https://discord.com/developers/applications
-  - Tu Client ID sale de la pesta?a *General Information*.
-  - Las imagenes deben estar en *Rich Presence > Art Assets*. El nombre del asset (por ejemplo `hola`) es la ?asset? que debes escribir. Discord no acepta links directos. [!imagen1](https://prnt.sc/HrJTQe7JH0zf)
+  - Tu Client ID sale de la pestaña *General Information*.
+  - Las imagenes deben estar en *Rich Presence > Art Assets*. El nombre del asset (por ejemplo `hola`) es la asset que debes escribir. Discord no acepta links directos. [imagen](https://prnt.sc/HrJTQe7JH0zf)
   - Instala dependencias con `npm install` o simplemente abre el .exe (creado con npm run build:exe).
 
 ## Como usarlo con `npm start`
