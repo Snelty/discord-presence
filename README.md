@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Discord Presence 🙈🙈
 
 Herramienta simple para configurar un estado de discord desde la consola o desde un `.exe`. El programa te pregunta por cada campo necesario (Client ID, textos, imagenes, botones) y mantiene la presencia activa hasta que cierres la ventana.
@@ -34,3 +35,7 @@ Herramienta simple para configurar un estado de discord desde la consola o desde
 - `snelty_presence.js`: CLI interactiva que usa `discord-rpc`.
 - `package.json`: scripts (`start`, `build:exe`) y configuracion de `pkg` para empaquetar todo en un ejecutable.
 
+=======
+# discord-presence
+🙈🙈🙈
+>>>>>>> 3d87dd23d9c75e7dce8b1770f883dc67f7d84661
