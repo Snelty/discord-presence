@@ -46,10 +46,17 @@ function printBanner() {
 }
 
 async function buildActivityPayload() {
-    const activity = {
-        details: await prompt("Detalle principal (details)", { defaultValue: "Jugando con..." }),
-        state: await prompt("Estado secundario (state)", { defaultValue: "jiji" }),
-    };
+    const activity = {};
+
+    const details = await prompt("Detalle principal (details)");
+    if (details) {
+        activity.details = details;
+    }
+
+    const state = await prompt("Estado secundario (state)");
+    if (state) {
+        activity.state = state;
+    }
 
     const largeImage = await prompt("Nombre del asset - imagen grande (rich presence - art assets)");
     if (largeImage) {
@@ -90,7 +97,7 @@ async function buildActivityPayload() {
 
 async function main() {
     printBanner();
-    console.log("Discord Presence CLI -> By Snelty 🙈\n---------------------------");
+    console.log("Discord Presence CLI -> By Snelty 🙈🙈\n---------------------------");
     const clientId = await prompt("Discord Application Client ID", { required: true });
 
     const client = new rpc.Client({ transport: "ipc" });
@@ -99,7 +106,7 @@ async function main() {
         console.log("Conectado. Configurando presencia...");
         const activity = await buildActivityPayload();
         await client.setActivity(activity);
-        console.log("Presencia activa. Manten esta ventana abierta. Ctrl+C para salir.");
+        console.log("Actividad en curso. Manten esta ventana abierta. Ctrl+C para salir.");
 
         const interval = setInterval(() => {
             client.setActivity(activity).catch((err) => console.error("Error actualizando presencia:", err));
@@ -108,7 +115,7 @@ async function main() {
         const cleanExit = () => {
             clearInterval(interval);
             client.clearActivity().finally(() => client.destroy());
-            console.log("Presencia cerrada. chao!");
+            console.log("Actividad cerrada. chao!");
             process.exit(0);
         };
 
@@ -136,3 +143,4 @@ main().catch((err) => {
     console.error("Error inesperado:", err);
     process.exit(1);
 });
+
